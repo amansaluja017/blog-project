@@ -37,7 +37,7 @@ export class AuthService {
         try {
             await this.account.get();
         } catch (error) {
-            throw error;
+            console.error("get current user failed", error);
         }
 
         return null;
