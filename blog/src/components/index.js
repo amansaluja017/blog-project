@@ -7,6 +7,9 @@ import Button from './Button';
 import Input from './input';
 import Options from './Options';
 import Postcard from './Postcard';
+import Signup from './Signup'
+import AuthLayout from './AuthLayout'
+import RTE from './RTE';
 
 export {
     Header,
@@ -18,4 +21,8 @@ export {
     Input,
     Options,
     Postcard,
+    Signup,
+    AuthLayout,
+    RTE,
+ 
 }
