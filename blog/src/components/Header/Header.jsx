@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom'
 
 
 function Header() {
-  const authStatus = useSelector((state) => state.auth.status)
+  const authStatus = useSelector(state => state.auth.status)
+
   const navigate = useNavigate()
 
-  const navItems = (
+  const navItems = [
     {
       name: 'Home',
       slug: '/',
@@ -18,24 +19,24 @@ function Header() {
     {
       name: 'login',
       slug: '/login',
-      active: !authStatus
+      active: authStatus
     },
     {
       name: 'Signup',
       slug: '/signup',
-      active: !authStatus
+      active: authStatus
     },
     {
       name: 'All posts',
-      slug: '/all-posts',
-      active: authStatus
+      slug: '/allposts',
+      active: !authStatus
     },
     {
       name: 'Add post',
-      slug: '/add-post',
-      active: authStatus
+      slug: '/addpost',
+      active: !authStatus
     }
-  )
+  ]
 
   return (
     <header className='py-3 shadow bg-gray-500'>
@@ -50,7 +51,7 @@ function Header() {
               {navItems.map((item) => item.active ? (
                 <li key={item.name}><button className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button></li>
               ) : null)}
-              {authStatus && (
+              {authStatus === true && (
                 <li>
                   <Logoutbtn />
                 </li>
